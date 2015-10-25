@@ -1,5 +1,5 @@
-# To define a function namely CacheMatrix with the purpose of creating a "matrix" object which can cache its inverse 
-CacheMatrix<-function(x=matrix()){
+# To define a function namely makeCacheMatrix with the purpose of creating a "matrix" object which can cache its inverse 
+makeCacheMatrix<-function(x=matrix()){
   # To define variable Matrix 
   Matrix <- NULL
   # To set the value of x
@@ -13,14 +13,14 @@ CacheMatrix<-function(x=matrix()){
   setinverse <- function(solve) Matrix <<- solve
   # To define a function namely getinverse in getting the values of the inverse matrix
   getinverse <- function() Matrix
-  # To use list function in listing down the existing sub-functions under the CacheMatrix function
+  # To use list function in listing down the existing sub-functions under the makeCacheMatrix function
   list(set = set, get = get,
        setinverse = setinverse,
        getinverse = getinverse)
 }
 
-# To define a function namely CacheSolve witht the purpose of computing the inverse of the "matrix" returned by CacheMatrix
-CacheSolve <- function(x, ...) {
+# To define a function namely CacheSolve witht the purpose of computing the inverse of the "matrix" returned by makeCacheMatrix
+cacheSolve <- function(x, ...) {
   # To get the inverse matrix that calculated previously
   Matrix <- x$getinverse()
   # To check the successfulness of the previous calculation
